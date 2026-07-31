@@ -60,10 +60,6 @@ Watch the complete digitized expense creation, digital signature authorization, 
 ### 1. System Login Portal
 ![System Login Portal](./docs/images/login_screen.png)
 
-
-#### 2. File Upload Mode
-![File Upload Signature Attachment](./docs/images/signature_uploaded.png)
-
 ---
 
 ### 4. Director Approval Command Center & Dashboard
