@@ -62,11 +62,6 @@ Watch the complete digitized expense creation, digital signature authorization, 
 
 ---
 
-### 2. Create New Expense Voucher Page
-![Create New Expense Voucher Page](./docs/images/create_voucher_page.png)
-
----
-
 ### 3. Interactive Signature Attachment (Draw & File Upload Modes)
 
 #### A. Interactive Canvas Drawing Mode
