@@ -1,3 +1,7 @@
+# Large video files
+WORKING OF APP.mp4
+*.mp4
+
 # Dependencies
 node_modules
 .pnpm-store
