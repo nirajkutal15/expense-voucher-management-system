@@ -47,6 +47,14 @@ This application digitizes the manual employee expense reimbursement process int
 
 ---
 
+## 📹 Full Application Walkthrough Demo Video
+
+Watch the complete digitized expense creation, digital signature authorization, approval workflow, and CSV export demo:
+
+- 🎬 **Video File**: [`./WORKING OF APP.mp4`](./WORKING%20OF%20APP.mp4)
+
+---
+
 ## 🖼️ Application Screenshots & UI Showcase
 
 ### 1. System Login Portal
