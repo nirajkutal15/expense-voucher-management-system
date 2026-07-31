@@ -60,14 +60,8 @@ Watch the complete digitized expense creation, digital signature authorization, 
 ### 1. System Login Portal
 ![System Login Portal](./docs/images/login_screen.png)
 
----
 
-### 3. Interactive Signature Attachment (Draw & File Upload Modes)
-
-#### A. Interactive Canvas Drawing Mode
-![Interactive Canvas Signature Drawing](./docs/images/signature_drawn.png)
-
-#### B. File Upload Mode
+#### 2. File Upload Mode
 ![File Upload Signature Attachment](./docs/images/signature_uploaded.png)
 
 ---
