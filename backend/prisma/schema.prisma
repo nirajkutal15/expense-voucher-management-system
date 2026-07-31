@@ -1,0 +1,80 @@
+// Prisma Schema for Expense Voucher Management System (SQLite / PostgreSQL dual compatible)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  employeeId   String?  @unique // e.g. EMP-001, DIR-001, ACC-001
+  role         String   @default("EMPLOYEE") // EMPLOYEE, DIRECTOR, ACCOUNTS
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  vouchersCreated  Voucher[]      @relation("CreatedVouchers")
+  vouchersApproved Voucher[]      @relation("ApprovedVouchers")
+  refreshTokens    RefreshToken[]
+
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String    @id @default(uuid())
+  token     String    @unique
+  userId    String
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("refresh_tokens")
+}
+
+model Voucher {
+  id                   String   @id @default(uuid())
+  voucherNumber        String   @unique
+  voucherDate          DateTime @default(now())
+  expenseDate          DateTime
+  department           String
+  expenseTitle         String
+  expenseCategory      String
+  expenseDescription   String
+  amount               Float
+  status               String   @default("DRAFT") // DRAFT, PENDING_APPROVAL, APPROVED, REJECTED
+
+  // Employee relation
+  employeeId           String
+  employee             User     @relation("CreatedVouchers", fields: [employeeId], references: [id])
+  employeeSignatureUrl String?
+
+  // Receipt / Bill proof attachment
+  receiptUrl           String?
+  receiptFilename      String?
+
+  // Director relation
+  directorId           String?
+  director             User?    @relation("ApprovedVouchers", fields: [directorId], references: [id])
+  directorSignatureUrl String?
+  approvalDate         DateTime?
+  rejectionReason      String?
+
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  @@index([status, employeeId])
+  @@index([department])
+  @@index([expenseCategory])
+  @@index([createdAt])
+  @@index([amount])
+
+  @@map("vouchers")
+}

@@ -1,0 +1,24 @@
+{
+  "name": "expense-voucher-management-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production-grade Full Stack Expense Voucher Management System",
+  "scripts": {
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev": "concurrently -k -p \"[{name}]\" -c \"cyan.bold,magenta.bold\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "build:backend": "npm run build --prefix backend",
+    "build:frontend": "npm run build --prefix frontend",
+    "build": "npm run build:backend && npm run build:frontend",
+    "test:backend": "npm test --prefix backend",
+    "test:frontend": "npm test --prefix frontend",
+    "test": "npm run test:backend && npm run test:frontend",
+    "db:migrate": "npm run db:migrate --prefix backend",
+    "db:seed": "npm run db:seed --prefix backend",
+    "lint": "npm run lint --prefix backend && npm run lint --prefix frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "prettier": "^3.2.5"
+  }
+}
