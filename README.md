@@ -3,6 +3,12 @@
 > Production-grade, full-stack digitized expense creation, approval workflow, and reimbursement tracking system built for **ABC Company / Prachay Securities Private Limited**.
 
 ---
+## 📹 Full Application Walkthrough Demo Video
+
+Watch the complete digitized expense creation, digital signature authorization, approval workflow, and CSV export demo:
+
+- 🎬 **Video File**:
+https://github.com/user-attachments/assets/27f452ba-4125-4b49-a7ac-1aee65037dc4
 
 ## 🖼️ Application Screenshots & UI Showcase
 
@@ -45,24 +51,6 @@
 ![Advanced Multi-Param Search & Filtering Drawer](./docs/images/advanced_filters_drawer.png)
 
 ---
-
-## 📹 Full Application Walkthrough Demo Video
-
-Watch the complete digitized expense creation, digital signature authorization, approval workflow, and CSV export demo:
-
-- 🎬 **Video File**: [`./WORKING OF APP.mp4`](./WORKING%20OF%20APP.mp4)
-
----
-
-https://github.com/user-attachments/assets/27f452ba-4125-4b49-a7ac-1aee65037dc4
-
-
-
-https://github.com/user-attachments/assets/f79eab2c-d736-415c-a7af-d2e8ebd11401
-
-
-
-
 
 ## 🚀 Executive Summary & Architecture Overview
 
