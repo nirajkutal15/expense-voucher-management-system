@@ -4,6 +4,66 @@
 
 ---
 
+## 🖼️ Application Screenshots & UI Showcase
+
+### 1. System Login Portal
+![System Login Portal](./docs/images/login_screen.png)
+
+---
+
+### 4. Director Approval Command Center & Dashboard
+![Director Approval Dashboard](./docs/images/director_dashboard.png)
+
+---
+
+### 5. Director Approval Modal & Sign-Off Authorization
+
+#### A. Initial Director Signature Modal
+![Director Approval Modal Initial State](./docs/images/director_approval_modal_empty.png)
+
+#### B. Signature Captured & Confirmed State
+![Director Approval Modal Signature Captured](./docs/images/director_approval_modal_signed.png)
+
+---
+
+### 6. Official Expense Reimbursement Voucher Detail View (Print / PDF Ready)
+![Pending Approval Voucher Detail View](./docs/images/voucher_detail_pending.png)
+
+---
+
+### 7. Accounts & Reimbursement Center Dashboard
+![Accounts Team Dashboard](./docs/images/accounts_dashboard.png)
+
+---
+
+### 8. Organization Expense Vouchers List & Search/Filters
+![Organization Expense Vouchers List](./docs/images/organization_vouchers.png)
+
+---
+
+### 9. Advanced Multi-Param Search & Filtering Drawer (Department, Category, Date Range, Amount Range)
+![Advanced Multi-Param Search & Filtering Drawer](./docs/images/advanced_filters_drawer.png)
+
+---
+
+## 📹 Full Application Walkthrough Demo Video
+
+Watch the complete digitized expense creation, digital signature authorization, approval workflow, and CSV export demo:
+
+- 🎬 **Video File**: [`./WORKING OF APP.mp4`](./WORKING%20OF%20APP.mp4)
+
+---
+
+https://github.com/user-attachments/assets/27f452ba-4125-4b49-a7ac-1aee65037dc4
+
+
+
+https://github.com/user-attachments/assets/f79eab2c-d736-415c-a7af-d2e8ebd11401
+
+
+
+
+
 ## 🚀 Executive Summary & Architecture Overview
 
 This application digitizes the manual employee expense reimbursement process into an automated, role-governed digital workflow. It strictly enforces role-based access control (RBAC), signature authorization, audit history, and validation rules across **Employees**, **Directors (Admin)**, and the **Accounts Team**.
@@ -47,55 +107,6 @@ This application digitizes the manual employee expense reimbursement process int
 
 ---
 
-## 📹 Full Application Walkthrough Demo Video
-
-Watch the complete digitized expense creation, digital signature authorization, approval workflow, and CSV export demo:
-
-- 🎬 **Video File**: [`./WORKING OF APP.mp4`](./WORKING%20OF%20APP.mp4)
-
----
-
-## 🖼️ Application Screenshots & UI Showcase
-
-### 1. System Login Portal
-![System Login Portal](./docs/images/login_screen.png)
-
----
-
-### 4. Director Approval Command Center & Dashboard
-![Director Approval Dashboard](./docs/images/director_dashboard.png)
-
----
-
-### 5. Director Approval Modal & Sign-Off Authorization
-
-#### A. Initial Director Signature Modal
-![Director Approval Modal Initial State](./docs/images/director_approval_modal_empty.png)
-
-#### B. Signature Captured & Confirmed State
-![Director Approval Modal Signature Captured](./docs/images/director_approval_modal_signed.png)
-
----
-
-### 6. Official Expense Reimbursement Voucher Detail View (Print / PDF Ready)
-![Pending Approval Voucher Detail View](./docs/images/voucher_detail_pending.png)
-
----
-
-### 7. Accounts & Reimbursement Center Dashboard
-![Accounts Team Dashboard](./docs/images/accounts_dashboard.png)
-
----
-
-### 8. Organization Expense Vouchers List & Search/Filters
-![Organization Expense Vouchers List](./docs/images/organization_vouchers.png)
-
----
-
-### 9. Advanced Multi-Param Search & Filtering Drawer (Department, Category, Date Range, Amount Range)
-![Advanced Multi-Param Search & Filtering Drawer](./docs/images/advanced_filters_drawer.png)
-
----
 
 ## 🛠️ Technology Stack
 
