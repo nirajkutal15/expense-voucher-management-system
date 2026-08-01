@@ -10,6 +10,12 @@ Watch the complete digitized expense creation, digital signature authorization, 
 - 🎬 **Video File**:
 https://github.com/user-attachments/assets/27f452ba-4125-4b49-a7ac-1aee65037dc4
 
+
+
+https://github.com/user-attachments/assets/b1172cde-8c44-49cb-8e0a-aa54b1c6946b
+
+
+
 ## 🖼️ Application Screenshots & UI Showcase
 
 ### 1. System Login Portal
