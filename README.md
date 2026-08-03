@@ -3,62 +3,7 @@
 > Production-grade, full-stack digitized expense creation, approval workflow, and reimbursement tracking system built for **ABC Company / Prachay Securities Private Limited**.
 
 ---
-## 📹 Full Application Walkthrough Demo Video
 
-Watch the complete digitized expense creation, digital signature authorization, approval workflow, and CSV export demo:
-
-DRIVE LINK FOR BETTER QUALITY - https://drive.google.com/file/d/12yPeiX3UhzXyrCOV3OeY38vk-Z248gwY/view?usp=sharing
-
-- 🎬 **Video File**:
-
-
-
-
-https://github.com/user-attachments/assets/b1172cde-8c44-49cb-8e0a-aa54b1c6946b
-
-
-
-## 🖼️ Application Screenshots & UI Showcase
-
-### 1. System Login Portal
-![System Login Portal](./docs/images/login_screen.png)
-
----
-
-### 4. Director Approval Command Center & Dashboard
-![Director Approval Dashboard](./docs/images/director_dashboard.png)
-
----
-
-### 5. Director Approval Modal & Sign-Off Authorization
-
-#### A. Initial Director Signature Modal
-![Director Approval Modal Initial State](./docs/images/director_approval_modal_empty.png)
-
-#### B. Signature Captured & Confirmed State
-![Director Approval Modal Signature Captured](./docs/images/director_approval_modal_signed.png)
-
----
-
-### 6. Official Expense Reimbursement Voucher Detail View (Print / PDF Ready)
-![Pending Approval Voucher Detail View](./docs/images/voucher_detail_pending.png)
-
----
-
-### 7. Accounts & Reimbursement Center Dashboard
-![Accounts Team Dashboard](./docs/images/accounts_dashboard.png)
-
----
-
-### 8. Organization Expense Vouchers List & Search/Filters
-![Organization Expense Vouchers List](./docs/images/organization_vouchers.png)
-
----
-
-### 9. Advanced Multi-Param Search & Filtering Drawer (Department, Category, Date Range, Amount Range)
-![Advanced Multi-Param Search & Filtering Drawer](./docs/images/advanced_filters_drawer.png)
-
----
 
 ## 🚀 Executive Summary & Architecture Overview
 
