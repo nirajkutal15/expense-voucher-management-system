@@ -3,6 +3,98 @@
 > Production-grade, full-stack digitized expense creation, approval workflow, and reimbursement tracking system built for **Prachay Securities Private Limited (PSPL)**.
 
 ---
+## 📹 Full Application Walkthrough Demo Video
+
+Watch the complete digitized expense creation, digital signature authorization, approval workflow, and CSV export demo:
+
+<video controls src="./Demo%20Video.mp4" width="100%" poster="./docs/images/landing_page_v2.png">
+  <p>Your browser does not support HTML5 video. You can <a href="./Demo%20Video.mp4">download the Demo Video.mp4 file</a> directly.</p>
+</video>
+
+---
+
+- 🎬 **Play / Download Video**: [`./Demo Video.mp4`](./Demo%20Video.mp4) (179 MB High-Definition Walkthrough)
+
+---
+
+## 🖼️ Application Screenshots & UI Showcase
+
+### 1. Prachay Securities Corporate Landing Page (`/`)
+![Prachay Securities Corporate Landing Page](./docs/images/landing_page_v2.png)
+
+---
+
+### 2. Tabbed Portal — Sign In Mode (`/login`)
+![Tabbed Sign In Portal with Ambient Background & Trust Badges](./docs/images/portal_signin_v2.png)
+
+---
+
+### 3. Tabbed Portal — Create Employee Account Mode (`/login?tab=register`)
+![Tabbed Create Employee Account Registration Portal](./docs/images/portal_register_v2.png)
+
+---
+
+### 4. Employee Self-Service Hub & Expense Claims
+
+#### A. Employee Dashboard Overview
+![Employee Dashboard with Metric Icons & Welcome Hub](./docs/images/dashboard_v2.png)
+
+#### B. My Expense Claims List View
+![My Expense Claims List View](./docs/images/my_expense_claims_v2.png)
+
+---
+
+### 5. Create New Expense Voucher & Signature Attachment
+
+#### A. Voucher Creation Form
+![Create New Expense Voucher Page](./docs/images/create_voucher_v2.png)
+
+#### B. Signature Attachment — File Upload Mode
+![Signature Attachment File Upload Mode](./docs/images/signature_upload_mode_v2.png)
+
+#### C. Signature Attachment — Signature Captured & Attached State
+![Signature Captured and Attached State](./docs/images/signature_attached_v2.png)
+
+---
+
+### 6. Director Approval Command Center & Queue
+
+#### A. Director Approval Dashboard Hub
+![Director Approval Command Center Dashboard](./docs/images/director_dashboard_v2.png)
+
+#### B. Pending Approvals Queue View
+![Director Pending Approvals Queue View](./docs/images/director_pending_queue_v2.png)
+
+---
+
+### 7. Director Approval Modal & Sign-Off Authorization
+
+#### A. Initial Director Signature Modal
+![Director Approval Modal Initial State](./docs/images/director_approval_modal_empty.png)
+
+#### B. Signature Captured & Confirmed State
+![Director Approval Modal Signature Captured](./docs/images/director_approval_modal_signed.png)
+
+---
+
+### 8. Official Expense Reimbursement Voucher Detail View (Print / PDF Ready)
+![Pending Approval Voucher Detail View](./docs/images/voucher_detail_pending.png)
+
+---
+
+### 9. Accounts & Reimbursement Center Dashboard
+![Accounts Team Dashboard](./docs/images/accounts_dashboard.png)
+
+---
+
+### 10. Organization Expense Vouchers List & Search/Filters
+![Organization Expense Vouchers List](./docs/images/organization_vouchers.png)
+
+---
+
+### 11. Advanced Multi-Param Search & Filtering Drawer (Department, Category, Date Range, Amount Range)
+![Advanced Multi-Param Search & Filtering Drawer](./docs/images/advanced_filters_drawer.png)
+
 
 ## 🚀 Executive Summary & Architecture Overview
 
@@ -58,101 +150,6 @@ This application digitizes the manual employee expense reimbursement process int
 - **Voucher Management List** (`http://localhost:3000/vouchers`): Searchable table with multi-parameter filtering (department, category, date range, amount range, status).
 - **Create / Edit Voucher** (`http://localhost:3000/vouchers/create`): Form with HTML5 canvas drawing pad & file upload signature attachment.
 - **Voucher Detail View** (`http://localhost:3000/vouchers/:id`): Print/PDF ready statutory voucher with dual Employee and Director signatures.
-
----
-
-## 📹 Full Application Walkthrough Demo Video
-
-Watch the complete digitized expense creation, digital signature authorization, approval workflow, and CSV export demo:
-
-<video controls src="./Demo%20Video.mp4" width="100%" poster="./docs/images/landing_page_v2.png">
-  <p>Your browser does not support HTML5 video. You can <a href="./Demo%20Video.mp4">download the Demo Video.mp4 file</a> directly.</p>
-</video>
-
-- 🎬 **Play / Download Video**: [`./Demo Video.mp4`](./Demo%20Video.mp4) (179 MB High-Definition Walkthrough)
-
----
-
-## 🖼️ Application Screenshots & UI Showcase
-
-### 1. Prachay Securities Corporate Landing Page (`/`)
-![Prachay Securities Corporate Landing Page](./docs/images/landing_page_v2.png)
-
----
-
-### 2. Tabbed Portal — Sign In Mode (`/login`)
-![Tabbed Sign In Portal with Ambient Background & Trust Badges](./docs/images/portal_signin_v2.png)
-
----
-
-### 3. Tabbed Portal — Create Employee Account Mode (`/login?tab=register`)
-![Tabbed Create Employee Account Registration Portal](./docs/images/portal_register_v2.png)
-
----
-
-### 4. Employee Self-Service Hub & Expense Claims
-
-#### A. Employee Dashboard Overview
-![Employee Dashboard with Metric Icons & Welcome Hub](./docs/images/dashboard_v2.png)
-
-#### B. My Expense Claims List View
-![My Expense Claims List View](./docs/images/my_expense_claims_v2.png)
-
----
-
-### 5. Create New Expense Voucher & Signature Attachment
-
-#### A. Voucher Creation Form
-![Create New Expense Voucher Page](./docs/images/create_voucher_v2.png)
-
-#### B. Signature Attachment — File Upload Mode
-![Signature Attachment File Upload Mode](./docs/images/signature_upload_mode_v2.png)
-
-#### C. Signature Attachment — Signature Captured & Attached State
-![Signature Captured and Attached State](./docs/images/signature_attached_v2.png)
-
-#### D. Signature Attachment — Interactive Canvas Drawing Mode
-![Interactive Canvas Signature Drawing](./docs/images/signature_drawn.png)
-
----
-
-### 6. Director Approval Command Center & Queue
-
-#### A. Director Approval Dashboard Hub
-![Director Approval Command Center Dashboard](./docs/images/director_dashboard_v2.png)
-
-#### B. Pending Approvals Queue View
-![Director Pending Approvals Queue View](./docs/images/director_pending_queue_v2.png)
-
----
-
-### 7. Director Approval Modal & Sign-Off Authorization
-
-#### A. Initial Director Signature Modal
-![Director Approval Modal Initial State](./docs/images/director_approval_modal_empty.png)
-
-#### B. Signature Captured & Confirmed State
-![Director Approval Modal Signature Captured](./docs/images/director_approval_modal_signed.png)
-
----
-
-### 8. Official Expense Reimbursement Voucher Detail View (Print / PDF Ready)
-![Pending Approval Voucher Detail View](./docs/images/voucher_detail_pending.png)
-
----
-
-### 9. Accounts & Reimbursement Center Dashboard
-![Accounts Team Dashboard](./docs/images/accounts_dashboard.png)
-
----
-
-### 10. Organization Expense Vouchers List & Search/Filters
-![Organization Expense Vouchers List](./docs/images/organization_vouchers.png)
-
----
-
-### 11. Advanced Multi-Param Search & Filtering Drawer (Department, Category, Date Range, Amount Range)
-![Advanced Multi-Param Search & Filtering Drawer](./docs/images/advanced_filters_drawer.png)
 
 ---
 
