@@ -15,7 +15,11 @@
     color: black !important;
   }
 
-  header, aside, button, nav, .print\:hidden {
+  header,
+  aside,
+  button,
+  nav,
+  .print\:hidden {
     display: none !important;
   }
 

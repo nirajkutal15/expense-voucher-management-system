@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { AppLayout } from '../layouts/AppLayout';
+import { LandingPage } from '../pages/LandingPage';
 import { LoginPage } from '../pages/LoginPage';
 import { DashboardPage } from '../pages/DashboardPage';
 import { VoucherListPage } from '../pages/VoucherListPage';
@@ -56,6 +57,10 @@ const PublicRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 export const AppRoutes: React.FC = () => {
   return (
     <Routes>
+      {/* Public Corporate Landing Page */}
+      <Route path="/" element={<LandingPage />} />
+
+      {/* Public Login & Register Portal */}
       <Route
         path="/login"
         element={
@@ -65,19 +70,18 @@ export const AppRoutes: React.FC = () => {
         }
       />
 
+      {/* Protected Dashboard & Voucher Management Routes */}
       <Route
-        path="/"
         element={
           <ProtectedRoute>
             <AppLayout />
           </ProtectedRoute>
         }
       >
-        <Route index element={<Navigate to="/dashboard" replace />} />
-        <Route path="dashboard" element={<DashboardPage />} />
-        <Route path="vouchers" element={<VoucherListPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/vouchers" element={<VoucherListPage />} />
         <Route
-          path="vouchers/create"
+          path="/vouchers/create"
           element={
             <ProtectedRoute allowedRoles={['EMPLOYEE']}>
               <VoucherCreatePage />
@@ -85,17 +89,17 @@ export const AppRoutes: React.FC = () => {
           }
         />
         <Route
-          path="vouchers/:id/edit"
+          path="/vouchers/:id/edit"
           element={
             <ProtectedRoute allowedRoles={['EMPLOYEE']}>
               <VoucherEditPage />
             </ProtectedRoute>
           }
         />
-        <Route path="vouchers/:id" element={<VoucherDetailPage />} />
+        <Route path="/vouchers/:id" element={<VoucherDetailPage />} />
       </Route>
 
-      <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 };

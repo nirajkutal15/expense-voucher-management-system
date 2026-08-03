@@ -7,7 +7,7 @@ import { StatusBadge } from '../components/common/StatusBadge';
 import { Pagination } from '../components/common/Pagination';
 import { formatCurrency, formatDate } from '../utils/formatters';
 import { VoucherQueryParams, VoucherStatus } from '../types';
-import { Search, Filter, PlusCircle, ArrowUpDown, X } from 'lucide-react';
+import { Search, Filter, PlusCircle, ArrowUpDown, X, Eye } from 'lucide-react';
 
 const DEPARTMENTS = [
   'Engineering',
@@ -113,8 +113,10 @@ export const VoucherListPage: React.FC = () => {
     }
   };
 
+  const hasActiveFilters = !!(department || expenseCategory || startDate || endDate || minAmount || maxAmount);
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
@@ -131,7 +133,7 @@ export const VoucherListPage: React.FC = () => {
         {user?.role === 'EMPLOYEE' && (
           <Link
             to="/vouchers/create"
-            className="inline-flex items-center px-4 py-2.5 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs rounded-xl shadow-md shadow-brand-500/20 transition self-start sm:self-auto"
+            className="inline-flex items-center px-4.5 py-2.5 bg-gradient-to-r from-brand-600 to-sky-500 hover:from-brand-500 hover:to-sky-400 text-white font-extrabold text-xs rounded-xl shadow-md shadow-brand-500/20 transition self-start sm:self-auto"
           >
             <PlusCircle className="w-4 h-4 mr-2" />
             Create New Voucher
@@ -164,7 +166,7 @@ export const VoucherListPage: React.FC = () => {
               setStatus(e.target.value);
               setPage(1);
             }}
-            className="w-full md:w-48 px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white"
+            className="w-full md:w-48 px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white"
           >
             <option value="">All Statuses</option>
             <option value="DRAFT">Draft</option>
@@ -177,19 +179,18 @@ export const VoucherListPage: React.FC = () => {
           <button
             type="button"
             onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
-            className={`inline-flex items-center px-4 py-2.5 text-xs font-semibold rounded-xl border transition ${showAdvancedFilters || department || expenseCategory || startDate || minAmount
+            className={`inline-flex items-center px-4 py-2.5 text-xs font-bold rounded-xl border transition ${
+              showAdvancedFilters || hasActiveFilters
                 ? 'bg-brand-50 border-brand-300 text-brand-700'
                 : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
-              }`}
+            }`}
           >
             <Filter className="w-4 h-4 mr-2" />
             Filters
-            {(department || expenseCategory || startDate || minAmount) && (
-              <span className="ml-1.5 w-2 h-2 rounded-full bg-brand-600" />
-            )}
+            {hasActiveFilters && <span className="ml-1.5 w-2 h-2 rounded-full bg-brand-600" />}
           </button>
 
-          {(q || status || department || expenseCategory || startDate || endDate || minAmount || maxAmount) && (
+          {(q || status || hasActiveFilters) && (
             <button
               type="button"
               onClick={clearFilters}
@@ -205,7 +206,7 @@ export const VoucherListPage: React.FC = () => {
         {showAdvancedFilters && (
           <div className="pt-4 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
             <div>
-              <label className="block font-semibold text-slate-600 mb-1">Department</label>
+              <label className="block font-bold text-slate-600 mb-1">Department</label>
               <select
                 value={department}
                 onChange={(e) => {
@@ -216,15 +217,13 @@ export const VoucherListPage: React.FC = () => {
               >
                 <option value="">All Departments</option>
                 {DEPARTMENTS.map((d) => (
-                  <option key={d} value={d}>
-                    {d}
-                  </option>
+                  <option key={d} value={d}>{d}</option>
                 ))}
               </select>
             </div>
 
             <div>
-              <label className="block font-semibold text-slate-600 mb-1">Category</label>
+              <label className="block font-bold text-slate-600 mb-1">Category</label>
               <select
                 value={expenseCategory}
                 onChange={(e) => {
@@ -235,15 +234,13 @@ export const VoucherListPage: React.FC = () => {
               >
                 <option value="">All Categories</option>
                 {CATEGORIES.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
+                  <option key={c} value={c}>{c}</option>
                 ))}
               </select>
             </div>
 
             <div>
-              <label className="block font-semibold text-slate-600 mb-1">Date Range</label>
+              <label className="block font-bold text-slate-600 mb-1">Date Range</label>
               <div className="flex items-center space-x-1">
                 <input
                   type="date"
@@ -268,7 +265,7 @@ export const VoucherListPage: React.FC = () => {
             </div>
 
             <div>
-              <label className="block font-semibold text-slate-600 mb-1">Amount Range (₹)</label>
+              <label className="block font-bold text-slate-600 mb-1">Amount Range (₹)</label>
               <div className="flex items-center space-x-1">
                 <input
                   type="number"
@@ -352,11 +349,11 @@ export const VoucherListPage: React.FC = () => {
                     <th className="py-3.5 px-6 text-center">Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 text-xs">
+                <tbody className="divide-y divide-slate-100 text-xs font-medium">
                   {data?.data?.map((v: any) => (
                     <tr key={v.id} className="hover:bg-slate-50/80 transition">
-                      <td className="py-3.5 px-6 font-mono font-bold text-brand-700">{v.voucherNumber}</td>
-                      <td className="py-3.5 px-6 font-semibold text-slate-800">
+                      <td className="py-4 px-6 font-mono font-bold text-brand-700">{v.voucherNumber}</td>
+                      <td className="py-4 px-6 font-semibold text-slate-800">
                         {v.employee?.name || 'Self'}
                         {v.employee?.employeeId && (
                           <span className="block text-[10px] text-slate-400 font-normal">
@@ -364,24 +361,25 @@ export const VoucherListPage: React.FC = () => {
                           </span>
                         )}
                       </td>
-                      <td className="py-3.5 px-6 text-slate-600 font-medium">{v.department}</td>
-                      <td className="py-3.5 px-6">
-                        <span className="font-semibold text-slate-900 block">{v.expenseTitle}</span>
+                      <td className="py-4 px-6 text-slate-600 font-medium">{v.department}</td>
+                      <td className="py-4 px-6">
+                        <span className="font-bold text-slate-900 block">{v.expenseTitle}</span>
                         <span className="text-[11px] text-slate-400">{v.expenseCategory}</span>
                       </td>
-                      <td className="py-3.5 px-6 text-right font-extrabold text-slate-900">
+                      <td className="py-4 px-6 text-right font-black text-slate-900 text-sm">
                         {formatCurrency(v.amount)}
                       </td>
-                      <td className="py-3.5 px-6">
+                      <td className="py-4 px-6">
                         <StatusBadge status={v.status} />
                       </td>
-                      <td className="py-3.5 px-6 text-slate-500 font-medium">{formatDate(v.expenseDate)}</td>
-                      <td className="py-3.5 px-6 text-center">
+                      <td className="py-4 px-6 text-slate-500 font-medium">{formatDate(v.expenseDate)}</td>
+                      <td className="py-4 px-6 text-center">
                         <Link
                           to={`/vouchers/${v.id}`}
-                          className="inline-flex items-center px-3 py-1 bg-slate-100 hover:bg-brand-50 text-slate-700 hover:text-brand-700 font-bold text-xs rounded-lg transition"
+                          className="inline-flex items-center space-x-1 px-3.5 py-1.5 bg-brand-50 hover:bg-brand-600 text-brand-700 hover:text-white border border-brand-200/80 font-extrabold text-xs rounded-xl transition-all shadow-sm"
                         >
-                          View
+                          <Eye className="w-3.5 h-3.5" />
+                          <span>View</span>
                         </Link>
                       </td>
                     </tr>

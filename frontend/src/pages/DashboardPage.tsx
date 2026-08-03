@@ -16,6 +16,7 @@ import {
   FileSpreadsheet,
   ArrowRight,
   Sparkles,
+  Eye,
 } from 'lucide-react';
 
 export const DashboardPage: React.FC = () => {
@@ -34,7 +35,7 @@ export const DashboardPage: React.FC = () => {
     return (
       <div className="flex items-center justify-center min-h-[50vh]">
         <div className="flex flex-col items-center space-y-3">
-          <div className="w-10 h-10 border-4 border-brand-500 border-t-transparent rounded-full animate-spin" />
+          <div className="w-10 h-10 border-4 border-brand-600 border-t-transparent rounded-full animate-spin" />
           <p className="text-xs font-semibold text-slate-500">Syncing live dashboard metrics...</p>
         </div>
       </div>
@@ -54,34 +55,34 @@ export const DashboardPage: React.FC = () => {
   const metrics = data.metrics;
 
   return (
-    <div className="space-y-8">
-      {/* Dynamic Welcome Hero Banner */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 p-8 rounded-3xl text-white shadow-2xl border border-slate-800/80 flex flex-col md:flex-row md:items-center justify-between gap-6">
+    <div className="space-y-8 animate-fade-in">
+      {/* Welcome Banner */}
+      <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white p-7 rounded-3xl shadow-xl border border-slate-700/60 flex flex-col md:flex-row md:items-center justify-between gap-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative z-10">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full border border-white/15 text-[11px] font-bold text-brand-300 uppercase tracking-widest mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+        <div className="relative z-10 space-y-1.5">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full border border-white/15 text-[11px] font-extrabold text-amber-400 uppercase tracking-widest mb-1">
+            <Sparkles className="w-3.5 h-3.5" />
             <span>
               {role === 'EMPLOYEE' && 'Employee Self-Service Hub'}
               {role === 'DIRECTOR' && 'Director Approval Command Center'}
-              {role === 'ACCOUNTS' && 'Accounts & Reimbursement Center'}
+              {role === 'ACCOUNTS' && 'Accounts & Settlement Portal'}
             </span>
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-black tracking-tight">
             Welcome back, {user?.name}! 👋
           </h2>
-          <p className="text-xs text-slate-300 mt-1.5 max-w-xl leading-relaxed">
-            {role === 'EMPLOYEE' && 'Track reimbursement claims, manage draft expenses, and submit requests for Director sign-off.'}
-            {role === 'DIRECTOR' && 'Review pending voucher submissions across departments, inspect signatures, and process approvals.'}
-            {role === 'ACCOUNTS' && 'Monitor organization-wide expense vouchers, verify authorization signatures, and issue payouts.'}
+          <p className="text-xs text-slate-300 max-w-xl leading-relaxed font-normal">
+            {role === 'EMPLOYEE' && 'Track your expense reimbursement claims, create drafts, and attach e-signatures for Director approval.'}
+            {role === 'DIRECTOR' && 'Review pending voucher submissions across departments, inspect dual signatures, and authorize payouts.'}
+            {role === 'ACCOUNTS' && 'Monitor organization-wide expense vouchers, verify authorization signatures, and process settlements.'}
           </p>
         </div>
 
         {role === 'EMPLOYEE' && (
           <Link
             to="/vouchers/create"
-            className="relative z-10 inline-flex items-center px-5 py-3 bg-gradient-to-r from-brand-600 to-sky-500 hover:from-brand-500 hover:to-sky-400 text-white font-extrabold text-xs rounded-2xl shadow-xl shadow-brand-600/30 transition-all hover:scale-[1.02] self-start md:self-auto"
+            className="relative z-10 inline-flex items-center px-5 py-3 bg-gradient-to-r from-brand-600 to-sky-500 hover:from-brand-500 hover:to-sky-400 text-white font-extrabold text-xs rounded-2xl shadow-lg shadow-brand-600/30 transition-all hover:scale-[1.02] active:scale-[0.98] self-start md:self-auto"
           >
             <PlusCircle className="w-4 h-4 mr-2" />
             Create New Voucher
@@ -120,7 +121,7 @@ export const DashboardPage: React.FC = () => {
         </div>
       )}
 
-      {/* Recent Activity Data Table */}
+      {/* Recent Activity Table */}
       <div className="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden">
         <div className="px-6 py-5 border-b border-slate-100 flex items-center justify-between">
           <div>
@@ -175,9 +176,10 @@ export const DashboardPage: React.FC = () => {
                   <td className="py-4 px-6 text-center">
                     <Link
                       to={`/vouchers/${v.id}`}
-                      className="inline-flex items-center px-3.5 py-1.5 bg-slate-100 hover:bg-brand-50 text-slate-700 hover:text-brand-700 font-extrabold text-xs rounded-xl transition"
+                      className="inline-flex items-center space-x-1 px-3.5 py-1.5 bg-brand-50 hover:bg-brand-600 text-brand-700 hover:text-white border border-brand-200/80 font-extrabold text-xs rounded-xl transition-all shadow-sm"
                     >
-                      View Details
+                      <Eye className="w-3.5 h-3.5" />
+                      <span>View</span>
                     </Link>
                   </td>
                 </tr>

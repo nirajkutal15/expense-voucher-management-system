@@ -6,6 +6,7 @@ interface AuthContextType {
   user: User | null;
   isLoading: boolean;
   login: (email: string, password: string) => Promise<void>;
+  register: (data: { name: string; email: string; password: string; employeeId?: string }) => Promise<void>;
   logout: () => Promise<void>;
 }
 
@@ -51,6 +52,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
+  const register = async (data: { name: string; email: string; password: string; employeeId?: string }) => {
+    const res = await apiClient.post('/auth/register', data);
+    if (res.data.success) {
+      setAccessToken(res.data.data.accessToken);
+      setUser(res.data.data.user);
+    }
+  };
+
   const logout = async () => {
     try {
       await apiClient.post('/auth/logout');
@@ -63,7 +72,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   return (
-    <AuthContext.Provider value={{ user, isLoading, login, logout }}>
+    <AuthContext.Provider value={{ user, isLoading, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   );

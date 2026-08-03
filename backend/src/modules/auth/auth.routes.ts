@@ -1,11 +1,20 @@
 import { Router } from 'express';
 import { authController } from './auth.controller';
 import { validateRequest } from '../../middlewares/validate';
-import { loginSchema } from './auth.schema';
+import { loginSchema, registerSchema } from './auth.schema';
 import { authenticate } from '../../middlewares/auth';
 import { authRateLimiter } from '../../middlewares/rateLimiter';
 
 const router = Router();
+
+/**
+ * @swagger
+ * /auth/register:
+ *   post:
+ *     summary: Register a new employee account
+ *     tags: [Auth]
+ */
+router.post('/register', authRateLimiter, validateRequest(registerSchema), authController.register);
 
 /**
  * @swagger

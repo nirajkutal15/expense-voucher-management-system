@@ -1,6 +1,6 @@
 # Expense Voucher Management System
 
-> Production-grade, full-stack digitized expense creation, approval workflow, and reimbursement tracking system built for **ABC Company / Prachay Securities Private Limited**.
+> Production-grade, full-stack digitized expense creation, approval workflow, and reimbursement tracking system built for **Prachay Securities Private Limited (PSPL)**.
 
 ---
 
@@ -32,9 +32,12 @@ This application digitizes the manual employee expense reimbursement process int
                            +------------------------+
 ```
 
-### Key Architectural Choices:
+### Key Architectural Choices & Recent Enhancements:
+- **Corporate Landing Page**: Dedicated, creative landing page at `/` detailing Prachay Securities institution background, SEBI compliance, interactive system inspector, role gateways, and registered office hubs (BKC Mumbai, Whitefield Bengaluru, Cyber City Gurugram).
+- **Self-Service Employee Registration**: Built `/auth/register` API allowing new users to self-register Employee accounts, attach Employee IDs, and immediately begin creating and submitting vouchers.
+- **Tabbed Sign In & Sign Up Portal**: Dual-mode login portal at `/login` with 1-click fast demo quick sign-in cards for Employee, Director, and Accounts profiles.
+- **Cohesive Corporate Design System**: Restructured design system using Tailwind CSS with unified Indigo & Violet accent tokens, glowing metric cards with status badges, and polished user profile avatar chips in the navbar.
 - **Clean Layered Backend Architecture**: Routes → Controllers → Services → Prisma Data Access. Zero business logic in route handlers.
-- **Frontend Separation of Concerns**: Centralized API layer (`axios` interceptors with JWT refresh rotation), custom TanStack Query hooks, presentational components, and role-protected routes.
 - **Strict Type Safety**: End-to-end TypeScript (strict mode enabled, zero `any`).
 - **Production Security**:
   - `HttpOnly`, `Secure`, `SameSite` cookies for Refresh Token rotation.
@@ -47,42 +50,83 @@ This application digitizes the manual employee expense reimbursement process int
 
 ---
 
+## 🧭 Page Routes & Application Flow
+
+- **Corporate Landing Page** (`http://localhost:3000/`): Institutional homepage showcasing system capabilities, SEBI compliance, and quick portal links.
+- **Sign In & Employee Account Portal** (`http://localhost:3000/login`): Tabbed portal to Sign In or Create a new Employee Account. Includes quick 1-click demo sign-in buttons.
+- **Protected Dashboard Hub** (`http://localhost:3000/dashboard`): Role-tailored metrics, pending approvals queue, and recent voucher activity.
+- **Voucher Management List** (`http://localhost:3000/vouchers`): Searchable table with multi-parameter filtering (department, category, date range, amount range, status).
+- **Create / Edit Voucher** (`http://localhost:3000/vouchers/create`): Form with HTML5 canvas drawing pad & file upload signature attachment.
+- **Voucher Detail View** (`http://localhost:3000/vouchers/:id`): Print/PDF ready statutory voucher with dual Employee and Director signatures.
+
+---
+
 ## 📹 Full Application Walkthrough Demo Video
 
 Watch the complete digitized expense creation, digital signature authorization, approval workflow, and CSV export demo:
 
-- 🎬 **Video File**: [`./WORKING OF APP.mp4`](./WORKING%20OF%20APP.mp4)
+<video controls src="./Demo%20Video.mp4" width="100%" poster="./docs/images/landing_page_v2.png">
+  <p>Your browser does not support HTML5 video. You can <a href="./Demo%20Video.mp4">download the Demo Video.mp4 file</a> directly.</p>
+</video>
+
+- 🎬 **Play / Download Video**: [`./Demo Video.mp4`](./Demo%20Video.mp4) (179 MB High-Definition Walkthrough)
 
 ---
 
 ## 🖼️ Application Screenshots & UI Showcase
 
-### 1. System Login Portal
-![System Login Portal](./docs/images/login_screen.png)
+### 1. Prachay Securities Corporate Landing Page (`/`)
+![Prachay Securities Corporate Landing Page](./docs/images/landing_page_v2.png)
 
 ---
 
-### 2. Create New Expense Voucher Page
-![Create New Expense Voucher Page](./docs/images/create_voucher_page.png)
+### 2. Tabbed Portal — Sign In Mode (`/login`)
+![Tabbed Sign In Portal with Ambient Background & Trust Badges](./docs/images/portal_signin_v2.png)
 
 ---
 
-### 3. Interactive Signature Attachment (Draw & File Upload Modes)
+### 3. Tabbed Portal — Create Employee Account Mode (`/login?tab=register`)
+![Tabbed Create Employee Account Registration Portal](./docs/images/portal_register_v2.png)
 
-#### A. Interactive Canvas Drawing Mode
+---
+
+### 4. Employee Self-Service Hub & Expense Claims
+
+#### A. Employee Dashboard Overview
+![Employee Dashboard with Metric Icons & Welcome Hub](./docs/images/dashboard_v2.png)
+
+#### B. My Expense Claims List View
+![My Expense Claims List View](./docs/images/my_expense_claims_v2.png)
+
+---
+
+### 5. Create New Expense Voucher & Signature Attachment
+
+#### A. Voucher Creation Form
+![Create New Expense Voucher Page](./docs/images/create_voucher_v2.png)
+
+#### B. Signature Attachment — File Upload Mode
+![Signature Attachment File Upload Mode](./docs/images/signature_upload_mode_v2.png)
+
+#### C. Signature Attachment — Signature Captured & Attached State
+![Signature Captured and Attached State](./docs/images/signature_attached_v2.png)
+
+#### D. Signature Attachment — Interactive Canvas Drawing Mode
 ![Interactive Canvas Signature Drawing](./docs/images/signature_drawn.png)
 
-#### B. File Upload Mode
-![File Upload Signature Attachment](./docs/images/signature_uploaded.png)
+---
+
+### 6. Director Approval Command Center & Queue
+
+#### A. Director Approval Dashboard Hub
+![Director Approval Command Center Dashboard](./docs/images/director_dashboard_v2.png)
+
+#### B. Pending Approvals Queue View
+![Director Pending Approvals Queue View](./docs/images/director_pending_queue_v2.png)
 
 ---
 
-### 4. Director Approval Command Center & Dashboard
-![Director Approval Dashboard](./docs/images/director_dashboard.png)
-
----
-
-### 5. Director Approval Modal & Sign-Off Authorization
+### 7. Director Approval Modal & Sign-Off Authorization
 
 #### A. Initial Director Signature Modal
 ![Director Approval Modal Initial State](./docs/images/director_approval_modal_empty.png)
@@ -92,22 +136,22 @@ Watch the complete digitized expense creation, digital signature authorization, 
 
 ---
 
-### 6. Official Expense Reimbursement Voucher Detail View (Print / PDF Ready)
+### 8. Official Expense Reimbursement Voucher Detail View (Print / PDF Ready)
 ![Pending Approval Voucher Detail View](./docs/images/voucher_detail_pending.png)
 
 ---
 
-### 7. Accounts & Reimbursement Center Dashboard
+### 9. Accounts & Reimbursement Center Dashboard
 ![Accounts Team Dashboard](./docs/images/accounts_dashboard.png)
 
 ---
 
-### 8. Organization Expense Vouchers List & Search/Filters
+### 10. Organization Expense Vouchers List & Search/Filters
 ![Organization Expense Vouchers List](./docs/images/organization_vouchers.png)
 
 ---
 
-### 9. Advanced Multi-Param Search & Filtering Drawer (Department, Category, Date Range, Amount Range)
+### 11. Advanced Multi-Param Search & Filtering Drawer (Department, Category, Date Range, Amount Range)
 ![Advanced Multi-Param Search & Filtering Drawer](./docs/images/advanced_filters_drawer.png)
 
 ---
@@ -119,9 +163,9 @@ Watch the complete digitized expense creation, digital signature authorization, 
 | **Frontend** | React 18, Vite, TypeScript | Modern, high-performance SPA |
 | **State & Data Fetching** | TanStack Query (v5) | Server state management & caching |
 | **Form & Validation** | React Hook Form, Zod | Type-safe form handling & input validation |
-| **Styling** | Tailwind CSS v3, Lucide Icons | Responsive modern design system |
+| **Styling** | Tailwind CSS v3, Lucide Icons | Responsive modern design system with Indigo & Violet palette |
 | **Backend** | Node.js, Express, TypeScript | RESTful API server |
-| **Database & ORM** | PostgreSQL 16, Prisma ORM | Relational database with migration engine |
+| **Database & ORM** | PostgreSQL 16 / SQLite, Prisma ORM | Relational database with migration engine |
 | **Auth & Security** | JWT, HttpOnly Cookies, Bcrypt, Helmet | Secure session and identity management |
 | **API Spec** | Swagger UI, OpenAPI 3.0 | Interactive API documentation |
 | **Testing** | Jest, Supertest, Vitest | Integration & unit test suites |
@@ -131,12 +175,12 @@ Watch the complete digitized expense creation, digital signature authorization, 
 
 ## 🔑 Pre-Configured Seed Demo Credentials
 
-For instant evaluation across all three user roles, run the seed script or spin up Docker. The system comes pre-loaded with the following test accounts:
+For instant evaluation across all three user roles, run the seed script or spin up Docker. The system comes pre-loaded with test accounts, or you can register a new Employee account directly on the Sign Up tab:
 
 | Role | Email | Password | Employee ID | Capabilities |
 | :--- | :--- | :--- | :--- | :--- |
-| **Employee** | `employee@abc.com` | `Employee@123` | `EMP-001` | Create, edit draft, upload signature, submit, track own vouchers |
-| **Employee 2** | `jane.doe@abc.com` | `Password@123` | `EMP-002` | Secondary employee account |
+| **Employee** | `employee@abc.com` | `Employee@123` | `EMP-101` | Create, edit draft, upload/draw signature, submit, track own vouchers |
+| **Employee 2** | `jane.doe@abc.com` | `Password@123` | `EMP-102` | Secondary employee account |
 | **Director (Admin)** | `director@abc.com` | `Director@123` | `DIR-001` | View all org vouchers, filter pending, approve with signature, reject with remarks |
 | **Accounts Team** | `accounts@abc.com` | `Accounts@123` | `ACC-001` | Monitor all vouchers, search & filter, view signatures, print/download reimbursement vouchers |
 
@@ -155,7 +199,8 @@ docker compose up --build -d
 ```
 
 ### Access URLs:
-- **Frontend SPA**: [http://localhost:3000](http://localhost:3000)
+- **Corporate Landing Page**: [http://localhost:3000](http://localhost:3000)
+- **Sign In & Register Portal**: [http://localhost:3000/login](http://localhost:3000/login)
 - **Backend API**: [http://localhost:5000/api/v1](http://localhost:5000/api/v1)
 - **Interactive Swagger Docs**: [http://localhost:5000/api/docs](http://localhost:5000/api/docs)
 - **Health Check Endpoint**: [http://localhost:5000/api/v1/health](http://localhost:5000/api/v1/health)
@@ -166,7 +211,7 @@ docker compose up --build -d
 
 ### Prerequisites:
 - **Node.js**: `v20.x` or higher
-- **PostgreSQL**: Running locally on port `5432`
+- **PostgreSQL / SQLite**: Database engine
 
 ### 1. Backend Setup
 ```bash
@@ -211,7 +256,7 @@ npm run dev
 - `email` (VarChar, Unique, Indexed)
 - `passwordHash` (Text, Bcrypt Hash)
 - `name` (VarChar)
-- `employeeId` (VarChar, Unique, e.g., `EMP-001`)
+- `employeeId` (VarChar, Unique, e.g., `EMP-101`)
 - `role` (Enum: `EMPLOYEE`, `DIRECTOR`, `ACCOUNTS`)
 - `createdAt`, `updatedAt` (Timestamp)
 
@@ -247,6 +292,7 @@ npm run dev
 All routes are versioned under `/api/v1` and documented via OpenAPI/Swagger at `/api/docs`.
 
 ### Auth Endpoints (`/api/v1/auth`)
+- `POST /register`: Registers a new Employee profile (`name`, `email`, `password`, `employeeId`).
 - `POST /login`: Authenticates user, issues JWT access token + HttpOnly refresh cookie.
 - `POST /refresh`: Rotates refresh token, returns new access token.
 - `POST /logout`: Revokes refresh token and clears cookie.
@@ -281,40 +327,18 @@ cd frontend
 npm test
 ```
 
-The backend test suite covers:
-- JWT authentication & refresh cookie rotation.
+The test suites cover:
+- JWT authentication, employee registration, & refresh cookie rotation.
 - Role-based authorization edge cases (e.g. Director cannot create vouchers; Employee cannot approve).
 - Voucher state machine transitions (Draft → Pending Approval → Approved / Rejected).
 - Validation rules (negative amounts, missing signatures, missing rejection reasons).
 
 ---
 
-## 📄 Explicit Requirements Traceability Matrix
-
-Every single functional, validation, role restriction, dashboard metric, and field requirement listed in `Full_Stack_Developer_Internship_Assignment_PSPL.docx` is strictly implemented and verified:
-
-| Requirement Category | Requirement Specification | Verification / Implementation |
-| :--- | :--- | :--- |
-| **User Roles** | Employee, Director (Admin), Accounts Team | Enforced in database enum `Role` & backend middleware `requireRole(...)` |
-| **Employee Limits** | Cannot view others' vouchers, cannot approve/reject, cannot edit non-drafts | Scoped queries `where: { employeeId: user.userId }` & state checks in `voucher.service.ts` |
-| **Director Limits** | Cannot modify employee-entered voucher details | Director endpoints only update `status`, `directorSignatureUrl`, `approvalDate`, `rejectionReason` |
-| **Accounts Limits** | Cannot create, edit, delete, approve, or reject vouchers | Middleware returns 403 Forbidden for Accounts on mutation endpoints |
-| **Workflow State** | `DRAFT` → `SUBMITTED/PENDING_APPROVAL` → `APPROVED` / `REJECTED` | Enforced state transitions in `voucher.service.ts` |
-| **Validation Rules** | Department, Title, Expense Date, Amount (> 0) mandatory | Zod schemas on backend (`voucher.schema.ts`) & frontend (`React Hook Form`) |
-| **Signature Rules** | Employee signature required on submit; Director signature required on approve | Strict validation in `submitVoucher` and `approveVoucher` service methods |
-| **Rejection Rule** | Rejection reason mandatory when rejecting | Validated in `rejectVoucher` service method; displayed in detail view & alert |
-| **Auto Voucher #** | Auto-generated unique voucher number | Formatted as `VCH-YYYYMMDD-0001` using database counters |
-| **Search & Filter** | Search by Voucher #, Employee, Department, Category, Status, Date Range, Amount Range | Full query builder in `voucher.service.ts` & advanced search bar in `VoucherListPage.tsx` |
-| **Employee Dash** | Total, Draft, Pending, Approved, Rejected, Total Amount Claimed | Aggregated in `dashboard.service.ts` & rendered in `DashboardPage.tsx` |
-| **Director Dash** | Pending Count, Approved Today, Rejected Today, Pending Amount, Recent Activity | Real-time queries in `dashboard.service.ts` & rendered in `DashboardPage.tsx` |
-| **Accounts Dash** | Total, Pending, Approved, Rejected, Total Approved Amount, Recent Approved | Aggregated in `dashboard.service.ts` & rendered in `DashboardPage.tsx` |
-
----
-
 ## 📌 Documented Assumptions
 
 1. **Signature Capture Flexibility**: Both interactive HTML5 Canvas drawing and standard PNG/JPEG file upload are supported to provide optimal UX.
-2. **Reimbursement Processing**: Accounts team marks vouchers for reimbursement by viewing approved vouchers and printing/exporting official voucher PDFs.
+2. **Employee Registration**: Self-service registration creates accounts strictly with `EMPLOYEE` role to maintain security boundaries. Director and Accounts profiles are managed via seeding or administrative configuration.
 3. **Voucher Numbering**: Generated sequentially per day in format `VCH-YYYYMMDD-XXXX`.
 
 ---

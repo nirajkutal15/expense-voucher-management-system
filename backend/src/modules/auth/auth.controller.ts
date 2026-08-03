@@ -11,6 +11,25 @@ const COOKIE_OPTIONS = {
 };
 
 export class AuthController {
+  register = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const { email, password, name, employeeId } = req.body;
+      const result = await authService.register({ email, password, name, employeeId });
+
+      res.cookie('refreshToken', result.refreshToken, COOKIE_OPTIONS);
+
+      res.status(HTTP_STATUS.CREATED).json({
+        success: true,
+        data: {
+          user: result.user,
+          accessToken: result.accessToken,
+        },
+      });
+    } catch (err) {
+      next(err);
+    }
+  };
+
   login = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const { email, password } = req.body;
